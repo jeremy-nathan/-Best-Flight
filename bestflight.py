@@ -2,6 +2,10 @@ from geopy.geocoders import Nominatim
 import geopy
 from geopy import distance
 import gmplot
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set()
+
 
 cities=['Kuala Lumpur','Shanghai','New York','Singapore','New Delhi','Manila','Washington DC','Tokyo','Paris']
 cities_latitude=[None] * len(cities)
