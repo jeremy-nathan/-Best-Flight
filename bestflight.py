@@ -1,6 +1,6 @@
 from geopy.geocoders import Nominatim
 import geopy
-import gmplot
+###import gmplot
 
 cities=['Shanghai','New York','Singapore','New Delhi','Manila','Washington DC','Tokyo','Paris']
 cities_latitude=[None] * len(cities)
