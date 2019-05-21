@@ -5,6 +5,7 @@ import gmplot
 import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set()
+import networkx as nx
 
 
 cities=['Kuala Lumpur','Shanghai','New York','Singapore','New Delhi','Manila','Washington DC','Tokyo','Paris']
@@ -60,3 +61,24 @@ gmap3.apikey="AIzaSyDmpwQtMwmoWGHX2UBqnAldc8CFDus77RQ"
 
 
 gmap3.draw("gmap3.html")
+
+G = nx.Graph()
+
+def add_node(startnode):
+    for i in range(len(cities)-1):
+        G.add_edge(cities[startnode],cities[i+1],weight=cities_distance[i+1])
+
+
+for i in range(len(cities)):
+    add_node(i)
+
+pos  = nx.spring_layout(G)
+
+nx.draw_networkx_nodes(G,pos,node_size = 700)
+
+nx.draw_networkx_edges(G,pos,edgelist=None, width = 6)
+
+nx.draw_networkx_labels(G,pos,font_size = 10, font_family = 'sans-serif')
+
+plt.axis('off')
+plt.show()
