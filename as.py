@@ -18,7 +18,7 @@ for i in range(len(cities)):
     # a[cities[i]][cities[i+1]]=i*10
 
 
-print(a)
+# print(a[cities[0]][cities[2]])
 
 # for i in range(len(cities)):
 #     a[cities[i]]={}
@@ -27,3 +27,10 @@ print(a)
 #
 #
 # print(a)
+city='London'
+for i in range(len(cities)):
+    # for j in range(len(a[cities[i]])):
+    if city in a[cities[i]]:
+        print("shit")
+    else:
+        print("not found")
