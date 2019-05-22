@@ -156,7 +156,7 @@ print(cities_distance_Paris)
 
 
 import gmplot
-
+import numpy as np
 
 gmap3 = gmplot.GoogleMapPlotter(KL_latitude,
                                 KL_longitude, 13)

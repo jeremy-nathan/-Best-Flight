@@ -7,9 +7,14 @@ cities=['Kuala Lumpur','Shanghai','New York','Singapore','New Delhi','Manila','W
 
 a={}
 
-for i in range(len(cities)-1):
+def calc(start):
+    for i in range(len(cities)-1):
+        a[cities[start]][cities[i]]=i*10
+
+for i in range(len(cities)):
     a[cities[i]]={}
-    a[cities[0]][cities[i+1]]=i*10
+    calc(i)
+    # calc(i)
     # a[cities[i]][cities[i+1]]=i*10
 
 
