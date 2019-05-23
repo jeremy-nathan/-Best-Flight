@@ -27,10 +27,17 @@ def calcdistance(start):
     for i in range(0,len(cities),random.randint(3,5)):
         cities_distance[cities[start]][cities[i]]=int(distance.distance((cities_coords[cities[start]]['latitude'],cities_coords[cities[start]]['longitude']),(cities_coords[cities[i]]['latitude'],cities_coords[cities[i]]['longitude'])).kilometers)
 
+counter = 0
+
 for i in range(len(cities)):
     cities_distance[cities[i]]={}
     calcdistance(i)
-counter = 0
+    while counter<9:
+        if cities[counter] not in cities_distance[cities[i]]:
+            calcdistance(i)
+        counter+=1
+
+
 
 def dijkstra(graph,src,dest,visited=[],distances={},predecessors={}):
     """ calculates a shortest path tree routed in src
@@ -98,17 +105,17 @@ print(cities_distance)
 # for i in range(len(cities)-1):
 dijkstra(cities_distance,'Kuala Lumpur','Paris')
 print()
-for i in range(len(cities)):
-    # for j in range(len(cities)):
-    if cities[4] not in cities_distance[cities[i]]:
-        print("shit")
-        counter+=1
-        if(counter ==9):
-            print("shit")
-        else:
-            continue
-    else:
-        break
+# for i in range(len(cities)):
+#     # for j in range(len(cities)):
+#     if cities[4] not in cities_distance[cities[i]]:
+#         print("shit")
+#         counter+=1
+#         if(counter ==9):
+#             print("shit")
+#         else:
+#             continue
+#     else:
+#         break
 
 
 end=time.time()
