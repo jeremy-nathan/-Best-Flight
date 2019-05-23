@@ -37,8 +37,8 @@ for i in range(len(cities)):
     #         calcdistance(i)
     #     counter+=1
 
-dest  = input('Enter flight destination')
-del cities_distance['Kuala Lumpur'][dest]
+# dest  = input('Enter flight destination')
+# del cities_distance['Kuala Lumpur'][dest]
 
 def dijkstra(graph,src,dest,visited=[],distances={},predecessors={}):
     """ calculates a shortest path tree routed in src
