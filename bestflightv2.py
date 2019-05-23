@@ -11,7 +11,7 @@ cities=['Kuala Lumpur','Shanghai','New York','Singapore','New Delhi','Manila','W
 
 cities_location={}
 cities_coords={}
-geolocator=Nominatim(user_agent="Algo Assignment")
+geolocator=Nominatim(user_agent="Algo Assignment",timeout=30)
 cities_distance={}
 
 for i in range(len(cities)):
@@ -24,7 +24,7 @@ for i in range(len(cities)):
 
 
 def calcdistance(start):
-    for i in range(0,len(cities),random.randint(3,5)):
+     for i in range(len(cities)):
         cities_distance[cities[start]][cities[i]]=int(distance.distance((cities_coords[cities[start]]['latitude'],cities_coords[cities[start]]['longitude']),(cities_coords[cities[i]]['latitude'],cities_coords[cities[i]]['longitude'])).kilometers)
 
 counter = 0
@@ -32,10 +32,10 @@ counter = 0
 for i in range(len(cities)):
     cities_distance[cities[i]]={}
     calcdistance(i)
-    while counter<9:
-        if cities[counter] not in cities_distance[cities[i]]:
-            calcdistance(i)
-        counter+=1
+    # while counter<9:
+    #     if cities[counter] not in cities_distance[cities[i]]:
+    #         calcdistance(i)
+    #     counter+=1
 
 
 
@@ -100,10 +100,12 @@ print()
      #         'd': {'b': 1, 'c': 11, 't': 5},
      #         't': {'c': 3, 'd': 5}}
  #    dijkstra(graph,'s','t')
-print(cities_distance)
+# print(cities_distance)
 
 # for i in range(len(cities)-1):
-dijkstra(cities_distance,'Kuala Lumpur','Paris')
+dest=input("Enter your Destination: ")
+del cities_distance['Kuala Lumpur'][dest]
+dijkstra(cities_distance,'Kuala Lumpur',dest)
 print()
 # for i in range(len(cities)):
 #     # for j in range(len(cities)):

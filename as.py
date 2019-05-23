@@ -26,11 +26,6 @@ for i in range(len(cities)):
 #     a[cities[i]]['lon']=789
 #
 #
-# print(a)
-city='London'
-for i in range(len(cities)):
-    # for j in range(len(a[cities[i]])):
-    if city in a[cities[i]]:
-        print("shit")
-    else:
-        print("not found")
+print(a['Kuala Lumpur'])
+del a["Kuala Lumpur"]["New York"]
+print(a['Kuala Lumpur'])
