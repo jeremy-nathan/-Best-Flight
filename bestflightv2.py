@@ -11,7 +11,7 @@ cities=['Kuala Lumpur','Shanghai','New York','Singapore','New Delhi','Manila','W
 
 cities_location={}
 cities_coords={}
-geolocator=Nominatim(user_agent="Algo Assignment", timeout = 70)
+geolocator=Nominatim(user_agent="Algo Assignment",timeout=30)
 cities_distance={}
 
 for i in range(len(cities)):
@@ -37,7 +37,7 @@ for i in range(len(cities)):
     #         calcdistance(i)
     #     counter+=1
 
-# dest  = input('Enter flight destination')
+# dest  = input('Enter flight destination: ')
 # del cities_distance['Kuala Lumpur'][dest]
 
 def dijkstra(graph,src,dest,visited=[],distances={},predecessors={}):
@@ -91,12 +91,12 @@ def dijkstra(graph,src,dest,visited=[],distances={},predecessors={}):
 #     import unittest
     # sys.argv = ['', 'Test.testName']
     # unittest.main()
-print()
-print()
-
-print()
-
-print()
+# print()
+# print()
+#
+# print()
+#
+# print()
 
 
      # graph = {'s': {'a': 2, 'b': 1},
