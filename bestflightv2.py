@@ -3,7 +3,7 @@ from geopy.geocoders import Nominatim
 from geopy import distance
 import gmplot
 import time
-from djikstras import A
+# from djikstras import A
 import random
 start=time.time()
 
@@ -37,8 +37,6 @@ for i in range(len(cities)):
     #         calcdistance(i)
     #     counter+=1
 
-# dest  = input('Enter flight destination: ')
-# del cities_distance['Kuala Lumpur'][dest]
 
 def dijkstra(graph,src,dest,visited=[],distances={},predecessors={}):
     """ calculates a shortest path tree routed in src
@@ -110,21 +108,9 @@ def dijkstra(graph,src,dest,visited=[],distances={},predecessors={}):
 
 
 # for i in range(len(cities)-1):
-dest=input("Enter your Destination: ")
+dest  = input("Enter Your Destination: ")
 del cities_distance['Kuala Lumpur'][dest]
 dijkstra(cities_distance,'Kuala Lumpur',dest)
-print()
-# for i in range(len(cities)):
-#     # for j in range(len(cities)):
-#     if cities[4] not in cities_distance[cities[i]]:
-#         print("shit")
-#         counter+=1
-#         if(counter ==9):
-#             print("shit")
-#         else:
-#             continue
-#     else:
-#         break
 
 
 end=time.time()
