@@ -12,17 +12,10 @@ cities=['Kuala Lumpur','Shanghai','New York','Singapore','New Delhi','Manila','W
 cities_location={}
 cities_coords={}
 <<<<<<< HEAD
-<<<<<<< HEAD
-geolocator=Nominatim(user_agent="Algo Assignment", timeout = 70)
-=======
-geolocator=Nominatim(user_agent="Algo Assignment",timeout=30)
->>>>>>> 5c61b777eee07c492342ecc11056096cfc97f184
-=======
 geolocator=Nominatim(user_agent="Algo Assignment",timeout=30)
 =======
 geolocator=Nominatim(user_agent="Algo Assignment", timeout = 70)
 >>>>>>> 99f4bc6b6cdaaf7e5e8b1bda30a571b317e3abbd
->>>>>>> bd01105bf65c7ef619aa636cc0f5e8d9565c6098
 cities_distance={}
 
 for i in range(len(cities)):
@@ -36,17 +29,10 @@ for i in range(len(cities)):
 
 def calcdistance(start):
 <<<<<<< HEAD
-<<<<<<< HEAD
-    for i in range(0,len(cities)):
-=======
-     for i in range(len(cities)):
->>>>>>> 5c61b777eee07c492342ecc11056096cfc97f184
-=======
      for i in range(len(cities)):
 =======
     for i in range(0,len(cities)):
 >>>>>>> 99f4bc6b6cdaaf7e5e8b1bda30a571b317e3abbd
->>>>>>> bd01105bf65c7ef619aa636cc0f5e8d9565c6098
         cities_distance[cities[start]][cities[i]]=int(distance.distance((cities_coords[cities[start]]['latitude'],cities_coords[cities[start]]['longitude']),(cities_coords[cities[i]]['latitude'],cities_coords[cities[i]]['longitude'])).kilometers)
 
 counter = 0
@@ -59,7 +45,7 @@ for i in range(len(cities)):
     #         calcdistance(i)
     #     counter+=1
 
-dest  = input('Enter flight destination')
+dest  = input('Enter flight destination: ')
 del cities_distance['Kuala Lumpur'][dest]
 
 def dijkstra(graph,src,dest,visited=[],distances={},predecessors={}):
@@ -132,18 +118,8 @@ print()
 
 
 # for i in range(len(cities)-1):
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 dest=input("Enter your Destination: ")
 del cities_distance['Kuala Lumpur'][dest]
->>>>>>> 5c61b777eee07c492342ecc11056096cfc97f184
-=======
-dest=input("Enter your Destination: ")
-del cities_distance['Kuala Lumpur'][dest]
-=======
->>>>>>> 99f4bc6b6cdaaf7e5e8b1bda30a571b317e3abbd
->>>>>>> bd01105bf65c7ef619aa636cc0f5e8d9565c6098
 dijkstra(cities_distance,'Kuala Lumpur',dest)
 print()
 # for i in range(len(cities)):
