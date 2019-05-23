@@ -1,5 +1,5 @@
-from geopy.geocoders import Nominatim
 import geopy
+from geopy.geocoders import Nominatim
 from geopy import distance
 import gmplot
 import time
@@ -11,7 +11,7 @@ cities=['Kuala Lumpur','Shanghai','New York','Singapore','New Delhi','Manila','W
 
 cities_location={}
 cities_coords={}
-geolocator=Nominatim(user_agent="Algo Assignment")
+geolocator=Nominatim(user_agent="Algo Assignment", timeout = 70)
 cities_distance={}
 
 for i in range(len(cities)):
@@ -24,7 +24,7 @@ for i in range(len(cities)):
 
 
 def calcdistance(start):
-    for i in range(0,len(cities),random.randint(3,5)):
+    for i in range(0,len(cities)):
         cities_distance[cities[start]][cities[i]]=int(distance.distance((cities_coords[cities[start]]['latitude'],cities_coords[cities[start]]['longitude']),(cities_coords[cities[i]]['latitude'],cities_coords[cities[i]]['longitude'])).kilometers)
 
 counter = 0
@@ -37,7 +37,8 @@ for i in range(len(cities)):
             calcdistance(i)
         counter+=1
 
-
+dest  = input('Enter flight destination')
+del cities_distance['Kuala Lumpur'][dest]
 
 def dijkstra(graph,src,dest,visited=[],distances={},predecessors={}):
     """ calculates a shortest path tree routed in src
@@ -80,6 +81,11 @@ def dijkstra(graph,src,dest,visited=[],distances={},predecessors={}):
         dijkstra(graph,x,dest,visited,distances,predecessors)
 
 
+
+
+
+
+
 # if __name__ == "__main__":
 #     import sys
 #     import unittest
@@ -102,8 +108,9 @@ print()
  #    dijkstra(graph,'s','t')
 print(cities_distance)
 
+
 # for i in range(len(cities)-1):
-dijkstra(cities_distance,'Kuala Lumpur','Paris')
+dijkstra(cities_distance,'Kuala Lumpur',dest)
 print()
 # for i in range(len(cities)):
 #     # for j in range(len(cities)):
