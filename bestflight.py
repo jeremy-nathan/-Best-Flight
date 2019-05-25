@@ -181,7 +181,7 @@ for j in range(len(cities_latitude)):
 gmap3.apikey="AIzaSyDmpwQtMwmoWGHX2UBqnAldc8CFDus77RQ"
 
 
-gmap3.draw("gmap3.html")
+gmap3.draw("gmap.html")
 
 G = nx.Graph()
 
