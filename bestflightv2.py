@@ -6,9 +6,24 @@ import time
 from djikstras import A
 import random
 start=time.time()
+import webbrowser
 
+
+origin='Kuala Lumpur'
+geolocator  = Nominatim(user_agent="Algo Assignment")
+KL_location=geolocator.geocode(origin)
+KL_latitude=KL_location.latitude
+KL_longitude=KL_location.longitude
 cities=['Kuala Lumpur','Shanghai','New York','Singapore','New Delhi','Manila','Washington DC','Tokyo','Paris']
+cities_latitude=[None] * len(cities)
+cities_longitude=[None] * len(cities)
+for i in range(len(cities)):
+    location=geolocator.geocode(cities[i],timeout =150)
+    cities_latitude[i]=location.latitude
+    cities_longitude[i]=location.longitude
 
+cities_latitude.append(KL_latitude)
+cities_longitude.append(KL_longitude)
 cities_location={}
 cities_coords={}
 geolocator=Nominatim(user_agent="Algo Assignment",timeout=30)
@@ -52,11 +67,28 @@ def dijkstra(graph,src,dest,visited=[],distances={},predecessors={}):
     if src == dest:
         # We build the shortest path and display it
         path=[]
+        path_location = [None] *3
+        path_latitude = [None] *3
+        path_longitude = [None] *3
         pred=dest
+
+
         while pred != None:
             path.append(pred)
             pred=predecessors.get(pred,None)
-        print('shortest path: '+str(path)+" cost="+str(distances[dest]))
+        for i in range(len(path)):
+            path_location[i] = geolocator.geocode(path[i])
+            path_latitude[i] = path_location[i].latitude
+            path_longitude[i] = path_location[i].longitude
+        print(path_latitude)
+        gmap3 = gmplot.GoogleMapPlotter(KL_latitude,KL_longitude,13)
+        gmap3.scatter(cities_latitude,cities_longitude,'#FF0000',20, True)
+        for i in range (len(cities_coords)):
+              gmap3.plot(path_latitude,path_longitude,'red', edge_width = 3.0)
+        gmap3.apikey="AIzaSyDmpwQtMwmoWGHX2UBqnAldc8CFDus77RQ"
+        gmap3.draw("gmap3.html")
+        print('shortest path: '+str(path))
+        print(" Total Distance : "+str(distances[dest]) + " kilometres")
     else :
         # if it is the initial  run, initializes the cost
         if not visited:
@@ -68,6 +100,7 @@ def dijkstra(graph,src,dest,visited=[],distances={},predecessors={}):
                 if new_distance < distances.get(neighbor,float('inf')):
                     distances[neighbor] = new_distance
                     predecessors[neighbor] = src
+
         # mark as visited
         visited.append(src)
         # now that all neighbors have been visited: recurse
@@ -130,6 +163,8 @@ print()
 end=time.time()
 
 print("Running Time: ",(end-start))
+url = "gmap3.html"
+webbrowser.open(url,new=2)
 
 # print(len(cities_distance['Kuala Lumpur']))
 # cities_latitude=[None] * len(cities)

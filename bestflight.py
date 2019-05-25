@@ -32,7 +32,7 @@ Shanghai_longitude = Shanghai_location.longitude
 
 
 for i in range(len(cities)):
-    location=geolocator.geocode(cities[i])
+    location=geolocator.geocode(cities[i],timeout =150)
     cities_latitude[i]=location.latitude
     cities_longitude[i]=location.longitude
 
@@ -87,7 +87,7 @@ print('Singapore')
 print(cities_distance_Singapore)
 
 origin5 = 'New Delhi'
-New_Delhi_location = geolocator.geocode(origin5)
+New_Delhi_location = geolocator.geocode(origin5,timeout = 100)
 New_Delhi_latitude =New_Delhi_location.latitude
 New_Delhi_longitude = New_Delhi_location.longitude
 
@@ -114,7 +114,7 @@ print('Manila')
 print(cities_distance_Manila)
 
 origin7 = 'Washington DC'
-Washington_DC_location = geolocator.geocode(origin7)
+Washington_DC_location = geolocator.geocode(origin7,timeout=100)
 Washington_DC_latitude = Washington_DC_location.latitude
 Washington_DC_longitude = Washington_DC_location.longitude
 
@@ -141,7 +141,7 @@ print(cities_distance_Tokyo)
 
 
 origin9 = 'Paris'
-Paris_location = geolocator.geocode(origin9)
+Paris_location = geolocator.geocode(origin9, timeout=120)
 Paris_latitude = Paris_location.latitude
 Paris_longitude = Paris_location.longitude
 
