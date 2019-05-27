@@ -3,7 +3,8 @@ from geopy.geocoders import Nominatim
 from geopy import distance
 import gmplot
 import time
-from djikstras import A
+# from djikstras import Graph
+# from djikstras import A
 import random
 start=time.time()
 import webbrowser
@@ -67,6 +68,7 @@ for i in range(len(cities)):
 # print(Kuala Lumpur)
 # print(cities_distance['Kuala Lumpur'])
 
+##### ORIGINAL DIJKSTRA
 def dijkstra(graph,src,dest,visited=[],distances={},predecessors={}):
     """ calculates a shortest path tree routed in src
     """
@@ -93,8 +95,13 @@ def dijkstra(graph,src,dest,visited=[],distances={},predecessors={}):
             path_latitude[i] = path_location[i].latitude
             path_longitude[i] = path_location[i].longitude
         print(path_latitude)
+<<<<<<< HEAD
 
 
+=======
+        gmap3 = gmplot.GoogleMapPlotter(KL_latitude,KL_longitude,13)
+        gmap3.scatter(cities_latitude,citi0es_longitude,'#FF0000',20, True)
+>>>>>>> 5c8784ae5df92846284d8f09778e41a9b14f8c6c
         for i in range (len(cities_coords)):
               gmap3.plot(path_latitude,path_longitude,'red', edge_width = 3.0)
 
@@ -123,6 +130,7 @@ def dijkstra(graph,src,dest,visited=[],distances={},predecessors={}):
                 unvisited[k] = distances.get(k,float('inf'))
         x=min(unvisited, key=unvisited.get)
         dijkstra(graph,x,dest,visited,distances,predecessors)
+##### ORIGINAL DIJKSTRA
 
 
 
@@ -149,16 +157,22 @@ def dijkstra(graph,src,dest,visited=[],distances={},predecessors={}):
  #    dijkstra(graph,'s','t')
 # print(cities_distance)
 
-
+# visited=[['Kuala Lumpur']]
 # for i in range(len(cities)-1):
+
 dest=input("Enter your Destination: ")
 del cities_distance['Kuala Lumpur'][dest]
+
 dijkstra(cities_distance,'Kuala Lumpur',dest)
+<<<<<<< HEAD
 gmap3.coloricon = "http://www.googlemapsmarkers.com/v1/%s/"
 gmap3.marker(cities_latitude[0],cities_longitude[0],'cornflowerblue')
 gmap3.apikey="AIzaSyDmpwQtMwmoWGHX2UBqnAldc8CFDus77RQ"
 gmap3.draw("gmap3.html")
 print()
+=======
+# print(cities_distance)
+>>>>>>> 5c8784ae5df92846284d8f09778e41a9b14f8c6c
 # for i in range(len(cities)):
 #     # for j in range(len(cities)):
 #     if cities[4] not in cities_distance[cities[i]]:
