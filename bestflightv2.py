@@ -7,7 +7,8 @@ from djikstras import A
 import random
 start=time.time()
 import webbrowser
-
+from itertools import combinations
+#import location_markers.py
 
 origin='Kuala Lumpur'
 geolocator  = Nominatim(user_agent="Algo Assignment")
@@ -22,12 +23,17 @@ for i in range(len(cities)):
     cities_latitude[i]=location.latitude
     cities_longitude[i]=location.longitude
 
+gmap3 = gmplot.GoogleMapPlotter(KL_latitude,KL_longitude,13)
+gmap3.scatter(cities_latitude,cities_longitude,'#FF0000',20, True)
+
 cities_latitude.append(KL_latitude)
 cities_longitude.append(KL_longitude)
 cities_location={}
 cities_coords={}
 geolocator=Nominatim(user_agent="Algo Assignment",timeout=30)
 cities_distance={}
+comb_distance = list(combinations(['Kuala Lumpur','Shanghai','New York','Singapore','New Delhi','Manila','Washington DC','Tokyo','Paris'],2))
+print(comb_distance)
 
 for i in range(len(cities)):
     cities_location[cities[i]]=geolocator.geocode(cities[i])
@@ -42,6 +48,8 @@ def calcdistance(start):
     for i in range(0,len(cities)):
         cities_distance[cities[start]][cities[i]]=int(distance.distance((cities_coords[cities[start]]['latitude'],cities_coords[cities[start]]['longitude']),(cities_coords[cities[i]]['latitude'],cities_coords[cities[i]]['longitude'])).kilometers)
 
+# cities_distance_Paris =
+
 counter = 0
 
 for i in range(len(cities)):
@@ -54,6 +62,10 @@ for i in range(len(cities)):
 
 # dest  = input('Enter flight destination: ')
 # del cities_distance['Kuala Lumpur'][dest]
+# Kuala Lumpur = ()
+# Kuala Lumpur = cities_distance['Kuala Lumpur']
+# print(Kuala Lumpur)
+# print(cities_distance['Kuala Lumpur'])
 
 def dijkstra(graph,src,dest,visited=[],distances={},predecessors={}):
     """ calculates a shortest path tree routed in src
@@ -81,12 +93,11 @@ def dijkstra(graph,src,dest,visited=[],distances={},predecessors={}):
             path_latitude[i] = path_location[i].latitude
             path_longitude[i] = path_location[i].longitude
         print(path_latitude)
-        gmap3 = gmplot.GoogleMapPlotter(KL_latitude,KL_longitude,13)
-        gmap3.scatter(cities_latitude,cities_longitude,'#FF0000',20, True)
+
+
         for i in range (len(cities_coords)):
               gmap3.plot(path_latitude,path_longitude,'red', edge_width = 3.0)
-        gmap3.apikey="AIzaSyDmpwQtMwmoWGHX2UBqnAldc8CFDus77RQ"
-        gmap3.draw("gmap3.html")
+
         print('shortest path: '+str(path))
         print(" Total Distance : "+str(distances[dest]) + " kilometres")
     else :
@@ -143,6 +154,10 @@ def dijkstra(graph,src,dest,visited=[],distances={},predecessors={}):
 dest=input("Enter your Destination: ")
 del cities_distance['Kuala Lumpur'][dest]
 dijkstra(cities_distance,'Kuala Lumpur',dest)
+gmap3.coloricon = "http://www.googlemapsmarkers.com/v1/%s/"
+gmap3.marker(cities_latitude[0],cities_longitude[0],'cornflowerblue')
+gmap3.apikey="AIzaSyDmpwQtMwmoWGHX2UBqnAldc8CFDus77RQ"
+gmap3.draw("gmap3.html")
 print()
 # for i in range(len(cities)):
 #     # for j in range(len(cities)):

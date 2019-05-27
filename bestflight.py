@@ -184,7 +184,7 @@ gmap3.marker(cities_latitude[0],cities_longitude[0],'cornflowerblue')
 gmap3.apikey="AIzaSyDmpwQtMwmoWGHX2UBqnAldc8CFDus77RQ"
 
 
-gmap3.draw("gmap3.html")
+gmap3.draw("gmap.html")
 
 # G = nx.Graph()
 #
