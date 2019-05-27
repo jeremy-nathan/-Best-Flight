@@ -163,12 +163,14 @@ gmap3.marker(cities_latitude[0],cities_longitude[0],'cornflowerblue')
 gmap3.apikey="AIzaSyDmpwQtMwmoWGHX2UBqnAldc8CFDus77RQ"
 gmap3.draw("gmap3.html")
 print()
+
 Distance_Singapore = {}
 Distance_Singapore = cities_distance['Singapore']
 del Distance_Singapore['Manila']
-print(Distance_Singapore)
+# print(Distance_Singapore)
 KL_Sing_Manila = {"Kuala Lumpur":{"Singapore":cities_distance['Kuala Lumpur']['Singapore']},
-                    "Singapore":{"Kuala Lumpur":cities_distance['Kuala Lumpur']['Singapore'],"Tokyo":Distance_Singapore['Tokyo'],"New York":Distance_Singapore['New York'], 'Shanghai':Distance_Singapore['Shanghai'],'Washington DC':Distance_Singapore['Washington DC'], 'Paris':Distance_Singapore['Paris'],'New Delhi':Distance_Singapore['New Delhi']},
+                    "Singapore":{"Kuala Lumpur":cities_distance['Kuala Lumpur']['Singapore'],"Tokyo":cities_distance['Tokyo']['Singapore'],"New York":cities_distance['New York']['Singapore'],'Shanghai':cities_distance['Shanghai']['Singapore'],'Washington DC':cities_distance['Singapore']['Washington DC'],'Paris':cities_distance['Singapore']['Paris'],
+                    'New Delhi':cities_distance['Singapore']['New Delhi']},
                     "Tokyo":{"Singapore":cities_distance['Tokyo']['Singapore'],"Manila":cities_distance['Tokyo']['Manila']},
                     "New York":{"Singapore":cities_distance['New York']['Singapore'],"Manila":cities_distance['New York']['Manila']},
                      "Shanghai":{"Singapore":cities_distance['Shanghai']['Singapore'],"Manila":cities_distance['Shanghai']['Manila']},
