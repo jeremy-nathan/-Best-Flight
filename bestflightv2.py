@@ -33,7 +33,7 @@ cities_coords={}
 geolocator=Nominatim(user_agent="Algo Assignment",timeout=30)
 cities_distance={}
 comb_distance = list(combinations(['Kuala Lumpur','Shanghai','New York','Singapore','New Delhi','Manila','Washington DC','Tokyo','Paris'],2))
-print(comb_distance)
+print(comb_distance[0])
 
 for i in range(len(cities)):
     cities_location[cities[i]]=geolocator.geocode(cities[i])
@@ -50,6 +50,7 @@ def calcdistance(start):
 
 # cities_distance_Paris =
 
+print(cities_distance)
 counter = 0
 
 for i in range(len(cities)):
@@ -79,9 +80,9 @@ def dijkstra(graph,src,dest,visited=[],distances={},predecessors={}):
     if src == dest:
         # We build the shortest path and display it
         path=[]
-        path_location = [None] *3
-        path_latitude = [None] *3
-        path_longitude = [None] *3
+        path_location = [None] *4
+        path_latitude = [None] *4
+        path_longitude = [None] *4
         pred=dest
 
 
@@ -151,14 +152,34 @@ def dijkstra(graph,src,dest,visited=[],distances={},predecessors={}):
 
 
 # for i in range(len(cities)-1):
-dest=input("Enter your Destination: ")
+dest="Manila"
+
 del cities_distance['Kuala Lumpur'][dest]
-dijkstra(cities_distance,'Kuala Lumpur',dest)
+
+
+
 gmap3.coloricon = "http://www.googlemapsmarkers.com/v1/%s/"
 gmap3.marker(cities_latitude[0],cities_longitude[0],'cornflowerblue')
 gmap3.apikey="AIzaSyDmpwQtMwmoWGHX2UBqnAldc8CFDus77RQ"
 gmap3.draw("gmap3.html")
 print()
+Distance_Singapore = {}
+Distance_Singapore = cities_distance['Singapore']
+del Distance_Singapore['Manila']
+print(Distance_Singapore)
+KL_Sing_Manila = {"Kuala Lumpur":{"Singapore":cities_distance['Kuala Lumpur']['Singapore']},
+                    "Singapore":{"Kuala Lumpur":cities_distance['Kuala Lumpur']['Singapore'],"Tokyo":Distance_Singapore['Tokyo'],"New York":Distance_Singapore['New York'], 'Shanghai':Distance_Singapore['Shanghai'],'Washington DC':Distance_Singapore['Washington DC'], 'Paris':Distance_Singapore['Paris'],'New Delhi':Distance_Singapore['New Delhi']},
+                    "Tokyo":{"Singapore":cities_distance['Tokyo']['Singapore'],"Manila":cities_distance['Tokyo']['Manila']},
+                    "New York":{"Singapore":cities_distance['New York']['Singapore'],"Manila":cities_distance['New York']['Manila']},
+                     "Shanghai":{"Singapore":cities_distance['Shanghai']['Singapore'],"Manila":cities_distance['Shanghai']['Manila']},
+                     "Washington DC" :{"Singapore":cities_distance['Washington DC']['Singapore'],"Manila":cities_distance['Washington DC']['Manila']},
+                     "Paris":{"Singapore":cities_distance['Paris']['Singapore'],"Manila":cities_distance['Paris']['Manila']},
+                     "New Delhi":{"Singapore":cities_distance['New Delhi']['Singapore'],"Manila":cities_distance['New Delhi']['Manila']},
+                     "Manila":{"Tokyo":cities_distance["Tokyo"]["Manila"],"New York":cities_distance["New York"]["Manila"],"Shanghai":cities_distance["Shanghai"]["Manila"],"Washington DC":cities_distance["Washington DC"]["Manila"],"Paris":cities_distance["Paris"]["Manila"],"New Delhi":cities_distance["New Delhi"]["Manila"]}
+                     }
+
+dijkstra(KL_Sing_Manila,'Kuala Lumpur',dest)
+print(KL_Sing_Manila)
 # for i in range(len(cities)):
 #     # for j in range(len(cities)):
 #     if cities[4] not in cities_distance[cities[i]]:
