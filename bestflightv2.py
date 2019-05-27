@@ -95,13 +95,8 @@ def dijkstra(graph,src,dest,visited=[],distances={},predecessors={}):
             path_latitude[i] = path_location[i].latitude
             path_longitude[i] = path_location[i].longitude
         print(path_latitude)
-<<<<<<< HEAD
-
-
-=======
         gmap3 = gmplot.GoogleMapPlotter(KL_latitude,KL_longitude,13)
-        gmap3.scatter(cities_latitude,citi0es_longitude,'#FF0000',20, True)
->>>>>>> 5c8784ae5df92846284d8f09778e41a9b14f8c6c
+        gmap3.scatter(cities_latitude,cities_longitude,'#FF0000',20, True)
         for i in range (len(cities_coords)):
               gmap3.plot(path_latitude,path_longitude,'red', edge_width = 3.0)
 
@@ -164,15 +159,12 @@ dest=input("Enter your Destination: ")
 del cities_distance['Kuala Lumpur'][dest]
 
 dijkstra(cities_distance,'Kuala Lumpur',dest)
-<<<<<<< HEAD
 gmap3.coloricon = "http://www.googlemapsmarkers.com/v1/%s/"
 gmap3.marker(cities_latitude[0],cities_longitude[0],'cornflowerblue')
 gmap3.apikey="AIzaSyDmpwQtMwmoWGHX2UBqnAldc8CFDus77RQ"
 gmap3.draw("gmap3.html")
 print()
-=======
 # print(cities_distance)
->>>>>>> 5c8784ae5df92846284d8f09778e41a9b14f8c6c
 # for i in range(len(cities)):
 #     # for j in range(len(cities)):
 #     if cities[4] not in cities_distance[cities[i]]:
