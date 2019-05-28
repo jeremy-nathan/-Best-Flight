@@ -166,11 +166,6 @@ print()
 
 Distance_Singapore = {}
 Distance_Singapore = cities_distance['Singapore']
-<<<<<<< HEAD
-# del Distance_Singapore['Manila']
-# print(Distance_Singapore)
-
-=======
 del Distance_Singapore['Manila']
 print(Distance_Singapore)
 
@@ -178,7 +173,6 @@ route_KL_Manila = {'KL_Sing_Manila','KL_Tokyo_Manila','KL_Shanghai_Manila','KL_S
 
 for i in cities:
     route_KL_Manila[1] = {}
->>>>>>> 5ccf77acaf66d3baacb5d4e017c2edb1af91d654
 
 
 KL_Sing_Manila = {"Kuala Lumpur":{"Singapore":cities_distance['Kuala Lumpur']['Singapore']},
@@ -193,18 +187,15 @@ KL_Sing_Manila = {"Kuala Lumpur":{"Singapore":cities_distance['Kuala Lumpur']['S
                     "Manila":{"Tokyo":cities_distance["Tokyo"]["Manila"],"New York":cities_distance["New York"]["Manila"],"Shanghai":cities_distance["Shanghai"]["Manila"],"Washington DC":cities_distance["Washington DC"]["Manila"],"Paris":cities_distance["Paris"]["Manila"],"New Delhi":cities_distance["New Delhi"]["Manila"]}
                      }
 
-<<<<<<< HEAD
 # dijkstra(KL_Sing_Manila,'Kuala Lumpur',dest)
 # print(KL_Sing_Manila)
 
 
 
-=======
 KL_Tokyo_Manila = {"Kuala Lumpur":{"Tokyo":cities_distance['Kuala Lumpur']['Tokyo']},
                     "Tokyo":{"Kuala Lumpur":cities_distance['Kuala Lumpur']['Tokyo'], "Singapore":cities_distance['Tokyo']['Singapore'], "New York":cities_distance['Tokyo']['New York'], 'Shanghai':cities_distance['Shanghai']['Tokyo'],
 
 dijkstra(KL_Sing_Manila,'Kuala Lumpur',dest)
->>>>>>> 5ccf77acaf66d3baacb5d4e017c2edb1af91d654
 print(KL_Sing_Manila)
 
 
