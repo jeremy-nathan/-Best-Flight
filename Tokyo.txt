@@ -1,0 +1,41 @@
+This year, the Japanese Winter Olympic team that is going to Sochi has more members than ever and the women outnumber the men for the first time as well, due to the fact that Japan is participating for the first time in the last 16 years in women’s ice hockey.
+
+The women’s ice hockey team has 21 players, while their male counterparts did not make the cut.
+
+The entire delegation will be made up of 113 athletes, 48 men and 65 women, the biggest Japanese contingent sent abroad for a Winter Games, according to the international press.
+
+Although Japan is set to win as many gold medals as possible, only Sara Takanashi, a 17-year-old ski-jumper who has won eight of the season’s 11 World Cup competitions so far, is expected to win a gold medal for sure.
+
+Mao Asada, the skater who won the world champion title two times so far, is raring to avenge her defeat to South Korea’s Kim Yu-Na in Vancouver in 2010.
+
+Japan is expected to win medals as well in speed skating, freestyle skiing, cross country skiing and snowboarding.
+
+While the oldest sportsman of the Japanese team is ski jumper Noriaki Kasai, 41, the youngest one is snowboarder Ayumu Hirano, 15.
+
+Led by Associate Professor Yasue Mitsukura is a Keio University group that has developed something pretty awesome. They found a way to let an avatar copy the user’s facial expression just by using an ordinary PC and a normal USB camera. The system that they developed accomplishes this task with high speed and high precision, again just by using an ordinary PC and an ordinary USB camera.
+As quoted from the one of the members of the group and also from the video: “We think this system could be used by CG animation hobbyists, in Web dialog systems that show a character instead of a person’s face, and for making characters move in real time at events. Because the system uses just one PC and one camera, it can be applied in many situations very easily.”
+The system basically uses time-series signal processing in order to track and detect faces. At high speed with high precision, it is able to track human characteristics. In the video, you’ll notice that there are white dots. They are used to track the face while the red line (also in the video) will show the orientation of the user’s face. So, you can see how the system copies exactly the user’s facial movements.
+As quoted: “We’re using an algorithm that gets updated in line with the motion of the face, so it can track the face very fast and with very high precision. That’s the basic technology for this avatar system.”
+
+
+
+
+On top of that, this unique system is able to analyze the shape of the person’s expression, so that it can copy whether the user is laughing, surprised, angry or sad.
+
+This avatar system can also be used for games. Games that are able to detect and respond to any changes in the player’s face.
+
+“Systems using motion capture with markers on the face aren’t convenient for ordinary users. In that sense, until now, there hasn’t been a technology for moving a model freely in real-time.”
+
+The group is currently working on developing a motion generation software for standard PCs that will enable them to apply and implement this avatar system.
+
+Japan is planning to promote various sport programs in over 100 countries through the year 2020, a time that will coincide with the Summer Olympic Games that will be organized in Tokyo.
+
+Japan’s goal is to support sport competitions and to create physical education curriculum for schools.
+
+Around Y1 billion (around $9.6 million) will be given for the program from the 2014 budget. Another Y400 million ($3.8 million) will be used to create modules and curricula for physical education, and will also provide fund and management expertise to countries with little to no experience in holding sports events, the local press reports.
+
+While Japan is supporting other states in their sports programs, specifically in building facilities and sending equipment, the new program is set to boost this kind of foreign aid.
+
+The government will also invite members from the International Olympic Committee to visit Japan to teach people wanting to become sports instructors, and around Y600 million ($5.7 million) from the budget will be allocated to construct facilities specifically for this purpose.
+
+Together with other Asian countries such as China and South Korea, Japan will make donations to create an Asian anti-doping foundation for 2014 to help prevent forbidden substance use in athletes.
