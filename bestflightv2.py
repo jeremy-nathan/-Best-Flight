@@ -15,7 +15,7 @@ geolocator  = Nominatim(user_agent="Algo Assignment")
 KL_location=geolocator.geocode(origin,timeout=100)
 KL_latitude=KL_location.latitude
 KL_longitude=KL_location.longitude
-cities=['Kuala Lumpur','Shanghai','New York','Singapore','New Delhi','Manila','Washington DC','Tokyo','Paris']
+cities=['Kuala Lumpur','Shanghai','New York','Singapore','New Delhi','Washington DC','Tokyo','Paris','Manila']
 cities_latitude=[None] * len(cities)
 cities_longitude=[None] * len(cities)
 for i in range(len(cities)):
@@ -167,16 +167,26 @@ Distance_Singapore = {}
 Distance_Singapore = cities_distance['Singapore']
 del Distance_Singapore['Manila']
 print(Distance_Singapore)
+
+route_KL_Manila = {'KL_Sing_Manila','KL_Tokyo_Manila','KL_Shanghai_Manila','KL_Singapore_Manila','KL_NewYork_Manila', 'KL_Paris_Manila','KL_NewDelhi_Manila'}
+
+for i in cities:
+    route_KL_Manila[1] = {}
+
+
 KL_Sing_Manila = {"Kuala Lumpur":{"Singapore":cities_distance['Kuala Lumpur']['Singapore']},
                     "Singapore":{"Kuala Lumpur":cities_distance['Kuala Lumpur']['Singapore'],"Tokyo":Distance_Singapore['Tokyo'],"New York":Distance_Singapore['New York'], 'Shanghai':Distance_Singapore['Shanghai'],'Washington DC':Distance_Singapore['Washington DC'], 'Paris':Distance_Singapore['Paris'],'New Delhi':Distance_Singapore['New Delhi']},
                     "Tokyo":{"Singapore":cities_distance['Tokyo']['Singapore'],"Manila":cities_distance['Tokyo']['Manila']},
                     "New York":{"Singapore":cities_distance['New York']['Singapore'],"Manila":cities_distance['New York']['Manila']},
-                     "Shanghai":{"Singapore":cities_distance['Shanghai']['Singapore'],"Manila":cities_distance['Shanghai']['Manila']},
-                     "Washington DC" :{"Singapore":cities_distance['Washington DC']['Singapore'],"Manila":cities_distance['Washington DC']['Manila']},
-                     "Paris":{"Singapore":cities_distance['Paris']['Singapore'],"Manila":cities_distance['Paris']['Manila']},
-                     "New Delhi":{"Singapore":cities_distance['New Delhi']['Singapore'],"Manila":cities_distance['New Delhi']['Manila']},
-                     "Manila":{"Tokyo":cities_distance["Tokyo"]["Manila"],"New York":cities_distance["New York"]["Manila"],"Shanghai":cities_distance["Shanghai"]["Manila"],"Washington DC":cities_distance["Washington DC"]["Manila"],"Paris":cities_distance["Paris"]["Manila"],"New Delhi":cities_distance["New Delhi"]["Manila"]}
+                    "Shanghai":{"Singapore":cities_distance['Shanghai']['Singapore'],"Manila":cities_distance['Shanghai']['Manila']},
+                    "Washington DC" :{"Singapore":cities_distance['Washington DC']['Singapore'],"Manila":cities_distance['Washington DC']['Manila']},
+                    "Paris":{"Singapore":cities_distance['Paris']['Singapore'],"Manila":cities_distance['Paris']['Manila']},
+                    "New Delhi":{"Singapore":cities_distance['New Delhi']['Singapore'],"Manila":cities_distance['New Delhi']['Manila']},
+                    "Manila":{"Tokyo":cities_distance["Tokyo"]["Manila"],"New York":cities_distance["New York"]["Manila"],"Shanghai":cities_distance["Shanghai"]["Manila"],"Washington DC":cities_distance["Washington DC"]["Manila"],"Paris":cities_distance["Paris"]["Manila"],"New Delhi":cities_distance["New Delhi"]["Manila"]}
                      }
+
+KL_Tokyo_Manila = {"Kuala Lumpur":{"Tokyo":cities_distance['Kuala Lumpur']['Tokyo']},
+                    "Tokyo":{"Kuala Lumpur":cities_distance['Kuala Lumpur']['Tokyo'], "Singapore":cities_distance['Tokyo']['Singapore'], "New York":cities_distance['Tokyo']['New York'], 'Shanghai':cities_distance['Shanghai']['Tokyo'],
 
 dijkstra(KL_Sing_Manila,'Kuala Lumpur',dest)
 print(KL_Sing_Manila)
