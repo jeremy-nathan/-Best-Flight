@@ -112,38 +112,6 @@ def dijkstra(graph,src,dest,visited=[],distances={},predecessors={}):
         x=min(unvisited, key=unvisited.get)
         dijkstra(graph,x,dest,visited,distances,predecessors)
 
-dest="Manila"
-
-del cities_distance['Kuala Lumpur'][dest]
-
-
-
-gmap3.coloricon = "http://www.googlemapsmarkers.com/v1/%s/"
-gmap3.marker(cities_latitude[0],cities_longitude[0],'cornflowerblue')
-gmap3.apikey="AIzaSyDmpwQtMwmoWGHX2UBqnAldc8CFDus77RQ"
-gmap3.draw("gmap3.html")
-print()
-Distance_Singapore = {}
-Distance_Singapore = cities_distance['Singapore']
-del Distance_Singapore['Manila']
-print(Distance_Singapore)
-
-route_KL_Manila = {'KL_Sing_Manila','KL_Tokyo_Manila','KL_Shanghai_Manila','KL_Singapore_Manila','KL_NewYork_Manila', 'KL_Paris_Manila','KL_NewDelhi_Manila'}
-
-
-
-
-KL_Sing_Manila = {"Kuala Lumpur":{"Singapore":cities_distance['Kuala Lumpur']['Singapore']},
-                    "Singapore":{"Kuala Lumpur":cities_distance['Kuala Lumpur']['Singapore'],"Tokyo":Distance_Singapore['Tokyo'],"New York":Distance_Singapore['New York'], 'Shanghai':Distance_Singapore['Shanghai'],'Washington DC':Distance_Singapore['Washington DC'], 'Paris':Distance_Singapore['Paris'],'New Delhi':Distance_Singapore['New Delhi']},
-                    "Tokyo":{"Singapore":cities_distance['Tokyo']['Singapore'],"Manila":cities_distance['Tokyo']['Manila']},
-                    "New York":{"Singapore":cities_distance['New York']['Singapore'],"Manila":cities_distance['New York']['Manila']},
-                    "Shanghai":{"Singapore":cities_distance['Shanghai']['Singapore'],"Manila":cities_distance['Shanghai']['Manila']},
-                    "Washington DC" :{"Singapore":cities_distance['Washington DC']['Singapore'],"Manila":cities_distance['Washington DC']['Manila']},
-                    "Paris":{"Singapore":cities_distance['Paris']['Singapore'],"Manila":cities_distance['Paris']['Manila']},
-                    "New Delhi":{"Singapore":cities_distance['New Delhi']['Singapore'],"Manila":cities_distance['New Delhi']['Manila']},
-                    "Manila":{"Tokyo":cities_distance["Tokyo"]["Manila"],"New York":cities_distance["New York"]["Manila"],"Shanghai":cities_distance["Shanghai"]["Manila"],"Washington DC":cities_distance["Washington DC"]["Manila"],"Paris":cities_distance["Paris"]["Manila"],"New Delhi":cities_distance["New Delhi"]["Manila"]}
-                     }
-
 KL_Manila_Route = {'Kuala Lumpur':{'Singapore':cities_distance['Kuala Lumpur']['Singapore'],'New Delhi':cities_distance['Kuala Lumpur']['New Delhi'],'Paris':cities_distance['Kuala Lumpur']['Paris'], 'Washington DC':cities_distance['Kuala Lumpur']['Washington DC']},
                     'Singapore':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['Singapore'],'Shanghai':cities_distance['Singapore']['Shanghai'],'Tokyo':cities_distance['Singapore']['Tokyo']},
                     'New Delhi':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['New Delhi'],'New York':cities_distance['New Delhi']['New York']},
@@ -227,13 +195,20 @@ KL_SG_Route={'Kuala Lumpur':{'New York':cities_distance['Kuala Lumpur']['New Yor
              'Singapore':{'Manila':cities_distance['Manila']['Singapore'],'Washington DC':cities_distance['Washington DC']['Singapore']}
                    }
 
-KL_Tokyo_Manila = {"Kuala Lumpur":{"Tokyo":cities_distance['Kuala Lumpur']['Tokyo']},
-                    "Tokyo":{"Kuala Lumpur":cities_distance['Kuala Lumpur']['Tokyo'], "Singapore":cities_distance['Tokyo']['Singapore'], "New York":cities_distance['Tokyo']['New York'], 'Shanghai':cities_distance['Shanghai']['Tokyo'],
 
 
+
+dijkstra(KL_Manila_Route,"Kuala Lumpur","Manila")
+gmap3.coloricon = "http://www.googlemapsmarkers.com/v1/%s/"
+gmap3.marker(cities_latitude[0],cities_longitude[0],'cornflowerblue')
+gmap3.apikey="AIzaSyDmpwQtMwmoWGHX2UBqnAldc8CFDus77RQ"
+gmap3.draw("gmap3.html")
 
 
 end=time.time()
+
+
+
 
 print("Running Time: ",(end-start))
 url = "gmap3.html"
