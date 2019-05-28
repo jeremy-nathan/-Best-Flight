@@ -3,12 +3,10 @@ from geopy.geocoders import Nominatim
 from geopy import distance
 import gmplot
 import time
-# from djikstras import A
 import random
 start=time.time()
 import webbrowser
 from itertools import combinations
-#import location_markers.py
 
 origin='Kuala Lumpur'
 geolocator  = Nominatim(user_agent="Algo Assignment")
@@ -48,7 +46,6 @@ def calcdistance(start):
     for i in range(0,len(cities)):
         cities_distance[cities[start]][cities[i]]=int(distance.distance((cities_coords[cities[start]]['latitude'],cities_coords[cities[start]]['longitude']),(cities_coords[cities[i]]['latitude'],cities_coords[cities[i]]['longitude'])).kilometers)
 
-# cities_distance_Paris =
 
 print(cities_distance)
 counter = 0
@@ -56,17 +53,7 @@ counter = 0
 for i in range(len(cities)):
     cities_distance[cities[i]]={}
     calcdistance(i)
-    # while counter<9:
-    #     if cities[counter] not in cities_distance[cities[i]]:
-    #         calcdistance(i)
-    #     counter+=1
 
-# dest  = input('Enter flight destination: ')
-# del cities_distance['Kuala Lumpur'][dest]
-# Kuala Lumpur = ()
-# Kuala Lumpur = cities_distance['Kuala Lumpur']
-# print(Kuala Lumpur)
-# print(cities_distance['Kuala Lumpur'])
 
 def dijkstra(graph,src,dest,visited=[],distances={},predecessors={}):
     """ calculates a shortest path tree routed in src
@@ -125,33 +112,6 @@ def dijkstra(graph,src,dest,visited=[],distances={},predecessors={}):
         x=min(unvisited, key=unvisited.get)
         dijkstra(graph,x,dest,visited,distances,predecessors)
 
-
-
-
-# if __name__ == "__main__":
-#     import sys
-#     import unittest
-    # sys.argv = ['', 'Test.testName']
-    # unittest.main()
-# print()
-# print()
-#
-# print()
-#
-# print()
-
-
-     # graph = {'s': {'a': 2, 'b': 1},
-     #         'a': {'s': 3, 'b': 4, 'c':8},
-     #         'b': {'s': 4, 'a': 2, 'd': 2},
-     #         'c': {'a': 2, 'd': 7, 't': 4},
-     #         'd': {'b': 1, 'c': 11, 't': 5},
-     #         't': {'c': 3, 'd': 5}}
- #    dijkstra(graph,'s','t')
-# print(cities_distance)
-
-
-# for i in range(len(cities)-1):
 dest="Manila"
 
 del cities_distance['Kuala Lumpur'][dest]
@@ -270,19 +230,7 @@ KL_SG_Route={'Kuala Lumpur':{'New York':cities_distance['Kuala Lumpur']['New Yor
 KL_Tokyo_Manila = {"Kuala Lumpur":{"Tokyo":cities_distance['Kuala Lumpur']['Tokyo']},
                     "Tokyo":{"Kuala Lumpur":cities_distance['Kuala Lumpur']['Tokyo'], "Singapore":cities_distance['Tokyo']['Singapore'], "New York":cities_distance['Tokyo']['New York'], 'Shanghai':cities_distance['Shanghai']['Tokyo'],
 
-# dijkstra(KL_Sing_Manila,'Kuala Lumpur',dest)
-print(cities_distance)
-# for i in range(len(cities)):
-#     # for j in range(len(cities)):
-#     if cities[4] not in cities_distance[cities[i]]:
-#         print("shit")
-#         counter+=1
-#         if(counter ==9):
-#             print("shit")
-#         else:
-#             continue
-#     else:
-#         break
+
 
 
 end=time.time()
@@ -290,40 +238,3 @@ end=time.time()
 print("Running Time: ",(end-start))
 url = "gmap3.html"
 webbrowser.open(url,new=2)
-
-# print(len(cities_distance['Kuala Lumpur']))
-# cities_latitude=[None] * len(cities)
-# cities_longitude=[None] * len(cities)
-#
-# origin='Kuala Lumpur'
-# geolocator  = Nominatim(user_agent="Algo Assignment")
-# KL_location=geolocator.geocode(origin)
-# KL_latitude=KL_location.latitude
-# KL_longitude=KL_location.longitude
-#
-# for i in range(len(cities)):
-#     location=geolocator.geocode(cities[i])
-#     cities_latitude[i]=location.latitude
-#     cities_longitude[i]=location.longitude
-#
-# cities_latitude.append(KL_latitude)
-# cities_longitude.append(KL_longitude)
-#
-# mymap=pygmaps.maps(KL_latitude,KL_longitude,15)
-#
-# for i in range(len(cities)):
-#     mymap.addpoint(cities_latitude[i],cities_longitude[i],'#FF0000')
-#
-# city_coords=[()]*len(cities)
-#
-# for i in range(len(cities)):
-#     city_coords[i]=(cities_latitude[i],cities_longitude[i])
-#
-# def add_path(start):
-#     for i in range(len(cities)-1):
-#         mymap.addpath(city_coords[0:(i+1)],"#FF0000")
-#
-# for i in range(len(cities)):
-#     add_path(i)
-#
-# mymap.draw("gmap.html")
