@@ -170,8 +170,7 @@ print(Distance_Singapore)
 
 route_KL_Manila = {'KL_Sing_Manila','KL_Tokyo_Manila','KL_Shanghai_Manila','KL_Singapore_Manila','KL_NewYork_Manila', 'KL_Paris_Manila','KL_NewDelhi_Manila'}
 
-for i in cities:
-    route_KL_Manila[1] = {}
+
 
 
 KL_Sing_Manila = {"Kuala Lumpur":{"Singapore":cities_distance['Kuala Lumpur']['Singapore']},
@@ -185,11 +184,94 @@ KL_Sing_Manila = {"Kuala Lumpur":{"Singapore":cities_distance['Kuala Lumpur']['S
                     "Manila":{"Tokyo":cities_distance["Tokyo"]["Manila"],"New York":cities_distance["New York"]["Manila"],"Shanghai":cities_distance["Shanghai"]["Manila"],"Washington DC":cities_distance["Washington DC"]["Manila"],"Paris":cities_distance["Paris"]["Manila"],"New Delhi":cities_distance["New Delhi"]["Manila"]}
                      }
 
+KL_Manila_Route = {'Kuala Lumpur':{'Singapore':cities_distance['Kuala Lumpur']['Singapore'],'New Delhi':cities_distance['Kuala Lumpur']['New Delhi'],'Paris':cities_distance['Kuala Lumpur']['Paris'], 'Washington DC':cities_distance['Kuala Lumpur']['Washington DC']},
+                    'Singapore':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['Singapore'],'Shanghai':cities_distance['Singapore']['Shanghai'],'Tokyo':cities_distance['Singapore']['Tokyo']},
+                    'New Delhi':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['New Delhi'],'New York':cities_distance['New Delhi']['New York']},
+                    'Paris':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['Paris'],'Shanghai':cities_distance['Shanghai']['Paris']},
+                    'Shanghai':{'Singapore':cities_distance['Singapore']['Shanghai'],'Manila':cities_distance['Manila']['Shanghai'],'Paris':cities_distance['Shanghai']['Paris'],'Washington DC':cities_distance['Shanghai']['Washington DC']},
+                    'Tokyo':{'Singapore':cities_distance['Singapore']['Tokyo'],'Manila':cities_distance['Manila']['Tokyo']},
+                    'Washington DC':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['Washington DC'],'Shanghai':cities_distance['Shanghai']['Washington DC']},
+                    'New York':{'New Delhi':cities_distance['New York']['New Delhi'], 'Manila':cities_distance['New York']['Manila']},
+                    'Manila':{'Tokyo':cities_distance['Tokyo']['Manila'],'Shanghai':cities_distance['Shanghai']['Manila'],'New York':cities_distance["New York"]['Manila']}}
+
+KL_Tokyo_Route = {'Kuala Lumpur':{'Washington DC':cities_distance['Kuala Lumpur']['Washington DC'],'Singapore':cities_distance['Kuala Lumpur']['Singapore'],'New Delhi':cities_distance['Kuala Lumpur']['New Delhi'], 'Paris':cities_distance['Paris']['Kuala Lumpur']},
+                  'Singapore':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['Singapore'],'Manila':cities_distance['Singapore']['Manila'],'Shanghai':cities_distance['Singapore']['Shanghai']},
+                'New Delhi':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['New Delhi'], 'Shanghai':cities_distance['Shanghai']['New Delhi']},
+                'Paris':{'Kuala Lumpur':cities_distance['Paris']['Kuala Lumpur'],'Manila':cities_distance['Paris']['Manila']},
+                'Washington DC':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['Washington DC'],'Manila':cities_distance['Washington DC']['Manila']},
+                'Manila':{'Paris':cities_distance['Paris']['Manila'],'Washington DC':cities_distance['Washington DC']['Manila'], 'Singapore':cities_distance['Manila']['Singapore'],'Tokyo':cities_distance['Manila']['Tokyo']},
+                'Shanghai':{'New Delhi':cities_distance['Shanghai']['New Delhi'],'Singapore':cities_distance['Singapore']['Shanghai'],'Tokyo':cities_distance['Tokyo']['Shanghai']},
+                'Tokyo':{'Manila':cities_distance['Manila']['Tokyo'],'Shanghai':cities_distance['Tokyo']['Shanghai']}}
+
+
+KL_NewDelhi_Route = {'Kuala Lumpur':{'Washington DC':cities_distance['Kuala Lumpur']['Washington DC'],'Singapore':cities_distance['Kuala Lumpur']['Singapore'],'Tokyo':cities_distance['Kuala Lumpur']['Tokyo'], 'Paris':cities_distance['Paris']['Kuala Lumpur']},
+                'Singapore':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['Singapore'],'Manila':cities_distance['Singapore']['Manila'],'Shanghai':cities_distance['Singapore']['Shanghai']},
+                'Tokyo':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['Tokyo'], 'Shanghai':cities_distance['Shanghai']['Tokyo']},
+                'Paris':{'Kuala Lumpur':cities_distance['Paris']['Kuala Lumpur'],'Manila':cities_distance['Paris']['Manila']},
+                'Washington DC':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['Washington DC'],'Manila':cities_distance['Washington DC']['Manila']},
+                'Manila':{'Paris':cities_distance['Paris']['Manila'],'Washington DC':cities_distance['Washington DC']['Manila'], 'Singapore':cities_distance['Manila']['Singapore'],'Tokyo':cities_distance['Manila']['Tokyo']},
+                'Shanghai':{'New Delhi':cities_distance['Shanghai']['New Delhi'],'Singapore':cities_distance['Singapore']['Shanghai'],'Tokyo':cities_distance['Tokyo']['Shanghai']},
+                'New Delhi':{'Manila':cities_distance['Manila']['New Delhi'],'Shanghai':cities_distance['New Delhi']['Shanghai']}}
+
+KL_WashingtonDC_Route = {'Kuala Lumpur':{'New Delhi':cities_distance['Kuala Lumpur']['New Delhi'],'Singapore':cities_distance['Kuala Lumpur']['Singapore'],'Tokyo':cities_distance['Kuala Lumpur']['Tokyo'], 'Paris':cities_distance['Paris']['Kuala Lumpur']},
+                'Singapore':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['Singapore'],'Manila':cities_distance['Singapore']['Manila'],'Shanghai':cities_distance['Singapore']['Shanghai']},
+                'Tokyo':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['Tokyo'], 'Shanghai':cities_distance['Shanghai']['Tokyo']},
+                'Paris':{'Kuala Lumpur':cities_distance['Paris']['Kuala Lumpur'],'Manila':cities_distance['Paris']['Manila']},
+                'New Delhi':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['New Delhi'],'Manila':cities_distance['New Delhi']['Manila']},
+                'Manila':{'Paris':cities_distance['Paris']['Manila'],'Washington DC':cities_distance['Washington DC']['Manila'], 'Singapore':cities_distance['Manila']['Singapore'],'Tokyo':cities_distance['Manila']['Tokyo']},
+                'Shanghai':{'New Delhi':cities_distance['Shanghai']['New Delhi'],'Singapore':cities_distance['Singapore']['Shanghai'],'Tokyo':cities_distance['Tokyo']['Shanghai']},
+                'Washington DC':{'Manila':cities_distance['Manila']['Washington DC'],'Shanghai':cities_distance['Washington DC']['Shanghai']}}
+
+
+KL_Shanghai_Route={'Kuala Lumpur':{'Singapore':cities_distance['Kuala Lumpur']['Singapore'],'New Delhi':cities_distance['Kuala Lumpur']['New Delhi'],'Paris':cities_distance['Kuala Lumpur']['Paris'],'Washington DC':cities_distance['Kuala Lumpur']['Washington DC']},
+                   'Singapore':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['Singapore'],'Manila':cities_distance['Singapore']['Manila'],'Tokyo':cities_distance['Singapore']['Tokyo']},
+                   'New Delhi':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['New Delhi'],'New York':cities_distance['New Delhi']["New York"]},
+                   'Paris':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['Paris'],'Manila':cities_distance['Paris']['Manila']},
+                   'Manila':{'Singapore':cities_distance['Singapore']['Manila'],'Shanghai':cities_distance['Shanghai']['Manila']},
+                   'Tokyo':{'Singapore':cities_distance['Singapore']['Tokyo'],'Shanghai':cities_distance['Shanghai']['Tokyo']},
+                   'Washington DC':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['Washington DC'],'Manila':cities_distance['Manila']['Washington DC']},
+                   'New York':{'New Delhi':cities_distance['New York']['New Delhi'],'Shanghai':cities_distance['New York']['Shanghai']},
+                   'Shanghai':{'Manila':cities_distance['Manila']['Shanghai'],'Washington DC':cities_distance['Washington DC']['Shanghai']}
+                   }
+
+KL_Paris_Route={'Kuala Lumpur':{'Singapore':cities_distance['Kuala Lumpur']['Singapore'],'New Delhi':cities_distance['Kuala Lumpur']['New Delhi'],'Shanghai':cities_distance['Kuala Lumpur']['Shanghai'],'Washington DC':cities_distance['Kuala Lumpur']['Washington DC']},
+                'Singapore':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['Singapore'],'Manila':cities_distance['Singapore']['Manila'],'Tokyo':cities_distance['Singapore']['Tokyo']},
+                'New Delhi':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['New Delhi'],'New York':cities_distance['New Delhi']["New York"]},
+                'Shanghai':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['Shanghai'],'Manila':cities_distance['Shanghai']['Manila']},
+                'Manila':{'Singapore':cities_distance['Singapore']['Manila'],'Shanghai':cities_distance['Shanghai']['Manila']},
+                'Tokyo':{'Singapore':cities_distance['Singapore']['Tokyo'],'Shanghai':cities_distance['Shanghai']['Tokyo']},
+                'Washington DC':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['Washington DC'],'Manila':cities_distance['Manila']['Washington DC']},
+                'New York':{'New Delhi':cities_distance['New York']['New Delhi'],'Shanghai':cities_distance['New York']['Shanghai']},
+                'Paris':{'Manila':cities_distance['Manila']['Paris'],'Washington DC':cities_distance['Washington DC']['Paris']}
+                   }
+
+KL_NY_Route={'Kuala Lumpur':{'Singapore':cities_distance['Kuala Lumpur']['Singapore'],'New Delhi':cities_distance['Kuala Lumpur']['New Delhi'],'Shanghai':cities_distance['Kuala Lumpur']['Shanghai'],'Washington DC':cities_distance['Kuala Lumpur']['Washington DC']},
+             'Singapore':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['Singapore'],'Manila':cities_distance['Singapore']['Manila'],'Tokyo':cities_distance['Singapore']['Tokyo']},
+             'New Delhi':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['New Delhi'],'Paris':cities_distance['New Delhi']["Paris"]},
+             'Shanghai':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['Shanghai'],'Manila':cities_distance['Shanghai']['Manila']},
+             'Manila':{'Singapore':cities_distance['Singapore']['Manila'],'Shanghai':cities_distance['Shanghai']['Manila']},
+             'Tokyo':{'Singapore':cities_distance['Singapore']['Tokyo'],'Shanghai':cities_distance['Shanghai']['Tokyo']},
+             'Washington DC':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['Washington DC'],'Manila':cities_distance['Manila']['Washington DC']},
+             'Paris':{'New Delhi':cities_distance['Paris']['New Delhi'],'Shanghai':cities_distance['Paris']['Shanghai']},
+             'New York':{'Manila':cities_distance['Manila']['New York'],'Washington DC':cities_distance['Washington DC']['New York']}
+                   }
+
+KL_SG_Route={'Kuala Lumpur':{'New York':cities_distance['Kuala Lumpur']['New York'],'New Delhi':cities_distance['Kuala Lumpur']['New Delhi'],'Shanghai':cities_distance['Kuala Lumpur']['Shanghai'],'Washington DC':cities_distance['Kuala Lumpur']['Washington DC']},
+             'New York':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['New York'],'Manila':cities_distance['New York']['Manila'],'Tokyo':cities_distance['New York']['Tokyo']},
+             'New Delhi':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['New Delhi'],'Paris':cities_distance['New Delhi']["Paris"]},
+             'Shanghai':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['Shanghai'],'Manila':cities_distance['Shanghai']['Manila']},
+             'Manila':{'New York':cities_distance['New York']['Manila'],'Shanghai':cities_distance['Shanghai']['Manila']},
+             'Tokyo':{'New York':cities_distance['New York']['Tokyo'],'Shanghai':cities_distance['Shanghai']['Tokyo']},
+             'Washington DC':{'Kuala Lumpur':cities_distance['Kuala Lumpur']['Washington DC'],'Manila':cities_distance['Manila']['Washington DC']},
+             'Paris':{'New Delhi':cities_distance['Paris']['New Delhi'],'Shanghai':cities_distance['Paris']['Shanghai']},
+             'Singapore':{'Manila':cities_distance['Manila']['Singapore'],'Washington DC':cities_distance['Washington DC']['Singapore']}
+                   }
+
 KL_Tokyo_Manila = {"Kuala Lumpur":{"Tokyo":cities_distance['Kuala Lumpur']['Tokyo']},
                     "Tokyo":{"Kuala Lumpur":cities_distance['Kuala Lumpur']['Tokyo'], "Singapore":cities_distance['Tokyo']['Singapore'], "New York":cities_distance['Tokyo']['New York'], 'Shanghai':cities_distance['Shanghai']['Tokyo'],
 
-dijkstra(KL_Sing_Manila,'Kuala Lumpur',dest)
-print(KL_Sing_Manila)
+# dijkstra(KL_Sing_Manila,'Kuala Lumpur',dest)
+print(cities_distance)
 # for i in range(len(cities)):
 #     # for j in range(len(cities)):
 #     if cities[4] not in cities_distance[cities[i]]:
