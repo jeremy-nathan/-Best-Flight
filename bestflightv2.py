@@ -163,7 +163,6 @@ gmap3.marker(cities_latitude[0],cities_longitude[0],'cornflowerblue')
 gmap3.apikey="AIzaSyDmpwQtMwmoWGHX2UBqnAldc8CFDus77RQ"
 gmap3.draw("gmap3.html")
 print()
-
 Distance_Singapore = {}
 Distance_Singapore = cities_distance['Singapore']
 del Distance_Singapore['Manila']
@@ -176,8 +175,7 @@ for i in cities:
 
 
 KL_Sing_Manila = {"Kuala Lumpur":{"Singapore":cities_distance['Kuala Lumpur']['Singapore']},
-                    "Singapore":{"Kuala Lumpur":cities_distance['Kuala Lumpur']['Singapore'],"Tokyo":cities_distance['Tokyo']['Singapore'],"New York":cities_distance['New York']['Singapore'],'Shanghai':cities_distance['Shanghai']['Singapore'],'Washington DC':cities_distance['Singapore']['Washington DC'],'Paris':cities_distance['Singapore']['Paris'],
-                    'New Delhi':cities_distance['Singapore']['New Delhi']},
+                    "Singapore":{"Kuala Lumpur":cities_distance['Kuala Lumpur']['Singapore'],"Tokyo":Distance_Singapore['Tokyo'],"New York":Distance_Singapore['New York'], 'Shanghai':Distance_Singapore['Shanghai'],'Washington DC':Distance_Singapore['Washington DC'], 'Paris':Distance_Singapore['Paris'],'New Delhi':Distance_Singapore['New Delhi']},
                     "Tokyo":{"Singapore":cities_distance['Tokyo']['Singapore'],"Manila":cities_distance['Tokyo']['Manila']},
                     "New York":{"Singapore":cities_distance['New York']['Singapore'],"Manila":cities_distance['New York']['Manila']},
                     "Shanghai":{"Singapore":cities_distance['Shanghai']['Singapore'],"Manila":cities_distance['Shanghai']['Manila']},
@@ -187,18 +185,22 @@ KL_Sing_Manila = {"Kuala Lumpur":{"Singapore":cities_distance['Kuala Lumpur']['S
                     "Manila":{"Tokyo":cities_distance["Tokyo"]["Manila"],"New York":cities_distance["New York"]["Manila"],"Shanghai":cities_distance["Shanghai"]["Manila"],"Washington DC":cities_distance["Washington DC"]["Manila"],"Paris":cities_distance["Paris"]["Manila"],"New Delhi":cities_distance["New Delhi"]["Manila"]}
                      }
 
-# dijkstra(KL_Sing_Manila,'Kuala Lumpur',dest)
-# print(KL_Sing_Manila)
-
-
-
 KL_Tokyo_Manila = {"Kuala Lumpur":{"Tokyo":cities_distance['Kuala Lumpur']['Tokyo']},
                     "Tokyo":{"Kuala Lumpur":cities_distance['Kuala Lumpur']['Tokyo'], "Singapore":cities_distance['Tokyo']['Singapore'], "New York":cities_distance['Tokyo']['New York'], 'Shanghai':cities_distance['Shanghai']['Tokyo'],
 
 dijkstra(KL_Sing_Manila,'Kuala Lumpur',dest)
 print(KL_Sing_Manila)
-
-
+# for i in range(len(cities)):
+#     # for j in range(len(cities)):
+#     if cities[4] not in cities_distance[cities[i]]:
+#         print("shit")
+#         counter+=1
+#         if(counter ==9):
+#             print("shit")
+#         else:
+#             continue
+#     else:
+#         break
 
 
 end=time.time()
@@ -206,3 +208,40 @@ end=time.time()
 print("Running Time: ",(end-start))
 url = "gmap3.html"
 webbrowser.open(url,new=2)
+
+# print(len(cities_distance['Kuala Lumpur']))
+# cities_latitude=[None] * len(cities)
+# cities_longitude=[None] * len(cities)
+#
+# origin='Kuala Lumpur'
+# geolocator  = Nominatim(user_agent="Algo Assignment")
+# KL_location=geolocator.geocode(origin)
+# KL_latitude=KL_location.latitude
+# KL_longitude=KL_location.longitude
+#
+# for i in range(len(cities)):
+#     location=geolocator.geocode(cities[i])
+#     cities_latitude[i]=location.latitude
+#     cities_longitude[i]=location.longitude
+#
+# cities_latitude.append(KL_latitude)
+# cities_longitude.append(KL_longitude)
+#
+# mymap=pygmaps.maps(KL_latitude,KL_longitude,15)
+#
+# for i in range(len(cities)):
+#     mymap.addpoint(cities_latitude[i],cities_longitude[i],'#FF0000')
+#
+# city_coords=[()]*len(cities)
+#
+# for i in range(len(cities)):
+#     city_coords[i]=(cities_latitude[i],cities_longitude[i])
+#
+# def add_path(start):
+#     for i in range(len(cities)-1):
+#         mymap.addpath(city_coords[0:(i+1)],"#FF0000")
+#
+# for i in range(len(cities)):
+#     add_path(i)
+#
+# mymap.draw("gmap.html")
