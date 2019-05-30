@@ -182,6 +182,11 @@ gmap3.marker(cities_latitude[0],cities_longitude[0],'cornflowerblue')
 
 
 gmap3.apikey="AIzaSyDmpwQtMwmoWGHX2UBqnAldc8CFDus77RQ"
+# for j in range(len(cities)):
+#     for i in range(len(cities)):
+for j in range(len(cities)):
+     for i in range(len(cities)):
+         gmap3.plot(cities_latitude[j:i],cities_longitude[j:i], 'red',edge_width = 2.5)
 
 
 gmap3.draw("gmap.html")
