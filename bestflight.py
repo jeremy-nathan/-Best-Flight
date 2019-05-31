@@ -167,15 +167,15 @@ gmap3.scatter( cities_latitude, cities_longitude, '#FF0000',
 gmap3.coloricon = "http://www.googlemapsmarkers.com/v1/%s/"
 gmap3.marker(cities_latitude[0],cities_longitude[0],'cornflowerblue')
 
-# for i in range(len(cities)):
-#     gmap3.plot(cities_latitude[0:(i+1)], cities_longitude[0:(i+1)],
-#            'red', edge_width = 2.5)
-# gmap3.plot(cities_latitude[0:2],cities_longitude[0:2], 'red',edge_width = 2.5)
+for i in range(len(cities)):
+    gmap3.plot(cities_latitude[0:(i+1)], cities_longitude[0:(i+1)],
+           'red', edge_width = 2.5)
+gmap3.plot(cities_latitude[0:2],cities_longitude[0:2], 'red',edge_width = 2.5)
 
-# for j in range(len(cities_latitude)):
-#     for i in range(len(cities_latitude)-1):
-#         gmap3.plot((cities_latitude[j],cities_latitude[i+1]),(cities_longitude[j],cities_longitude[i+1]), 'red',edge_width = 2.5)
-#gmap3.plot(cities_latitude[0:4],cities_longitude[0:4], 'red',edge_width = 2.5)
+for j in range(len(cities_latitude)):
+    for i in range(len(cities_latitude)-1):
+        gmap3.plot((cities_latitude[j],cities_latitude[i+1]),(cities_longitude[j],cities_longitude[i+1]), 'red',edge_width = 2.5)
+# gmap3.plot(cities_latitude[0:4],cities_longitude[0:4], 'red',edge_width = 2.5)
 
 # def add_line(start):
 #     for i in range(len(cities)):
