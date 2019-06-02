@@ -49,7 +49,6 @@ def calcdistance(start):
         cities_distance[cities[start]][cities[i]]=int(distance.distance((cities_coords[cities[start]]['latitude'],cities_coords[cities[start]]['longitude']),(cities_coords[cities[i]]['latitude'],cities_coords[cities[i]]['longitude'])).kilometers)
 
 
-cities_distance['Kuala Lumpur']['']
 
 for i in range(len(cities)):
     cities_distance[cities[i]]={}
